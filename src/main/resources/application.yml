@@ -1,0 +1,25 @@
+# 端口
+server:
+  port: 8081
+
+# DB配置
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test_db
+    username: testuser
+    password: testpassword
+    driver-class-name: org.postgresql.Driver
+    ssl: false
+    #sslmode: verify-ca
+    sslmode: require
+    sslcert: /Users/bbx/Desktop/_XXX/work/workspace/postgres/db_config/ssl_file/server.crt
+    #sslkey: /Users/bbx/Desktop/_XXX/work/workspace/postgres/db_config/ssl_file/server.pk8
+    sslkey: /Users/bbx/Desktop/_XXX/work/workspace/postgres/db_config/ssl_file/server.key
+    sslrootcert: /Users/bbx/Desktop/_XXX/work/workspace/postgres/db_config/ssl_file/root.crt
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+#        hbm2ddl:
+#          auto: update
+

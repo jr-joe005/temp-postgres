@@ -1,0 +1,19 @@
+version: '3'
+services:
+  #### Postgres DB Server
+  postgres-db-server:
+    container_name: postgres-db-server
+    image: postgres:alpine3.17
+    environment:
+      POSTGRES_DB: test_db
+      POSTGRES_USER: testuser
+      POSTGRES_PASSWORD: testpassword
+    ports:
+      - "5432:5432"
+    depends_on:
+      - oidc-server-mock
+    volumes:
+      - ./init/init_db.sql:/docker-entrypoint-initdb.d/10_init_db.sql
+      - ./init/init_server.sh:/data/postgresql/init_server.sh
+      - ./config_file:/data/postgresql/config_file
+      - ./ssl_file:/data/postgresql/ssl_file
