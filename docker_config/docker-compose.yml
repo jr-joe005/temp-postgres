@@ -1,0 +1,40 @@
+version: '3'
+services:
+  #### Postgres DB Server
+  postgres-db-server:
+    container_name: postgres-db-server
+    image: postgres:15.1
+    environment:
+      POSTGRES_DB: test_db
+      POSTGRES_USER: testuser
+      POSTGRES_PASSWORD: testpassword
+      PGPORT: 5432
+    ports:
+      - "5432:5432"
+    depends_on:
+      - oidc-server-mock
+    volumes:
+      - ./db_config/init/init_db.sql:/docker-entrypoint-initdb.d/10_init_db.sql
+      - ./db_config/init/init_server.sh:/data/postgresql/init_server.sh
+      - ./db_config/config_file:/data/postgresql/config_file
+      - ./db_config/ssl_file:/data/postgresql/ssl_file
+    networks:
+      default:
+        aliases:
+          - postgres-db-server.internal
+
+  #### Vault
+  vault:
+    container_name: vault-server
+    image: vault:1.12.2
+    volumes:
+      - ./hashicorp_vault/config:/vault/config:rw
+    environment:
+      - VAULT_ADDR=http://0.0.0.0:8200
+      - VAULT_API_ADDR=http://0.0.0.0:8200
+      - VAULT_ADDRESS=http://0.0.0.0:8200
+    cap_add:
+          - IPC_LOCK
+    entrypoint: vault server -config=/vault/config/config.json
+    ports:
+      - "8200:8200"
