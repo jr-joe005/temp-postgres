@@ -5,6 +5,7 @@ cp -f /data/postgresql/config_file/postgresql.conf /var/lib/postgresql/data
 cp -f /data/postgresql/ssl_file/root.crt /var/lib/postgresql/data
 cp -f /data/postgresql/ssl_file/server.crt /var/lib/postgresql/data
 cp -f /data/postgresql/ssl_file/server.key /var/lib/postgresql/data
+cp -f /data/postgresql/ssl_file/server.pk8 /var/lib/postgresql/data
 echo "conf file move ... END"
 
 echo "authority modify ... START"

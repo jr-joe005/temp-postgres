@@ -5,9 +5,9 @@ server:
 # DB配置
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/test_db?ssl=true&sslmode=require&sslcert=/ssl_file/server.crt&&sslkey=/ssl_file/server.key
+    url: jdbc:postgresql://localhost:5432/test_db?ssl=true&sslmode=require&sslcert=/Users/bbx/Desktop/_XXX/work/workspace/temp-postgres/src/main/resources/ssl_file/server.crt&sslkey=/Users/bbx/Desktop/_XXX/work/workspace/temp-postgres/src/main/resources/ssl_file/server.pk8
     username: testuser
-    password: testpassword
+#    password: testpassword
     driver-class-name: org.postgresql.Driver
   jpa:
     properties:
