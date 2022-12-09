@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: test_db
+  cloud:
+    vault:
+      application-name: test_db
+      host: 192.168.3.67
+      port: 8200
+      scheme: http
+      authentication: TOKEN
+      token: hvs.WcJbYLvD1cSCN1hMh5UEqUNa
+      connection-timeout: 5000
+      read-timeout: 15000
+      config:
+        order: -10
+      postgresql:
+        enabled: true
+        backend: database
+        profile-separator: /
+        default-context: application
+        application-name: test_db

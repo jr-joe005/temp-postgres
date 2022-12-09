@@ -2,6 +2,7 @@ package jr.temp.postgres.index;
 
 import jr.temp.postgres.cmn.entity.Person;
 import jr.temp.postgres.cmn.repository.PersonRepository;
+import jr.temp.postgres.cmn.service.VaultService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,9 @@ public class IndexController {
     @Autowired
     private PersonRepository personRepository;
 
+    @Autowired
+    private VaultService vaultService;
+
     @GetMapping("/")
     public String index(){
         log.info("---- index ----");
@@ -23,6 +27,8 @@ public class IndexController {
         log.info("-- name   : {}", person.getName());
         log.info("-- age    : {}", person.getAge());
         log.info("-- address: {}", person.getAddress());
+
+        //vaultService.getCredentialInfo();
 
         return "index";
     }
