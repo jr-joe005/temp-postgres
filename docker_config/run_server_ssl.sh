@@ -1,7 +1,5 @@
 docker stop postgres-db-server
-docker stop vault-server
 docker rm postgres-db-server
-docker rm vault-server
 
 #docker-compose up
 docker-compose up -d
