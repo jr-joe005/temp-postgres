@@ -15,7 +15,7 @@ spring:
         order: -10
       postgresql:
         enabled: true
-        backend: database
+        role: dbuser
         profile-separator: /
         default-context: application
         application-name: test_db
