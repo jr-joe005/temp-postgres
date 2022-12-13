@@ -3,9 +3,8 @@ server:
   port: 8081
 
 spring:
-  # DB配置  ** SSL认证时，将datasource配置块放开，并清楚DataSourceConfig.java
+  # DB配置  ** SSL认证时，将datasource配置块放开，并清除DataSourceConfig.java
 #  datasource:
-#    ### SSL认证用
 #    url: jdbc:postgresql://localhost:5432/test_db?ssl=true&sslmode=require&sslcert=/Users/bbx/Desktop/_XXX/work/workspace/temp-postgres/src/main/resources/ssl_file/server.crt&sslkey=/Users/bbx/Desktop/_XXX/work/workspace/temp-postgres/src/main/resources/ssl_file/server.pk8
 #    username: testuser
 #    driver-class-name: org.postgresql.Driver
