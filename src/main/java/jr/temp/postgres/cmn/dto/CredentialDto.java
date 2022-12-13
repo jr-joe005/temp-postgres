@@ -1,4 +1,4 @@
-package jr.temp.postgres.cmn.service.dto;
+package jr.temp.postgres.cmn.dto;
 
 import lombok.Data;
 

@@ -1,6 +1,6 @@
 package jr.temp.postgres.cmn.service;
 
-import jr.temp.postgres.cmn.service.dto.CredentialDto;
+import jr.temp.postgres.cmn.dto.CredentialDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.vault.authentication.TokenAuthentication;
@@ -29,7 +29,7 @@ class VaultServiceImpl implements VaultService {
         /* Authenticate to Vault */
         log.info("-- Authenticate to Vault");
         VaultEndpoint vaultEndpoint = new VaultEndpoint();
-        vaultEndpoint.setHost("192.168.3.67");
+        vaultEndpoint.setHost("192.168.3.137");
         vaultEndpoint.setPort(8200);
         vaultEndpoint.setScheme("http");
         VaultTemplate vaultTemplate = new VaultTemplate(vaultEndpoint, new TokenAuthentication("dev-only-token"));

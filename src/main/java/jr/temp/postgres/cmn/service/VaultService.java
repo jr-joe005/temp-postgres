@@ -1,6 +1,6 @@
 package jr.temp.postgres.cmn.service;
 
-import jr.temp.postgres.cmn.service.dto.CredentialDto;
+import jr.temp.postgres.cmn.dto.CredentialDto;
 
 /**
  * Vault操作
