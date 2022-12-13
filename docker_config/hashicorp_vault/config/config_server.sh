@@ -2,7 +2,7 @@
 
 # Configure our access
 export VAULT_ADDR="http://127.0.0.1:8200"
-export VAULT_TOKEN=$1
+export VAULT_TOKEN="$1"
 
 # verify the connection
 vault status
@@ -15,7 +15,7 @@ vault secrets enable database
 vault write database/config/test_db \
       plugin_name="postgresql-database-plugin" \
       allowed_roles="dbuser" \
-      connection_url="postgresql://{{username}}:{{password}}@192.168.3.67:5432/test_db" \
+      connection_url="postgresql://{{username}}:{{password}}@192.168.3.137:5432/test_db" \
       username="vault" \
       password="vault-password"
 

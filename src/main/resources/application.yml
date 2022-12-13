@@ -2,19 +2,21 @@
 server:
   port: 8081
 
-# DB配置
 spring:
-  datasource:
+  # DB配置
+#  datasource:
     #### SSL认证用
-    #url: jdbc:postgresql://localhost:5432/test_db?ssl=true&sslmode=require&sslcert=/Users/bbx/Desktop/_XXX/work/workspace/temp-postgres/src/main/resources/ssl_file/server.crt&sslkey=/Users/bbx/Desktop/_XXX/work/workspace/temp-postgres/src/main/resources/ssl_file/server.pk8
-    #username: testuser
+#    url: jdbc:postgresql://localhost:5432/test_db?ssl=true&sslmode=require&sslcert=/Users/bbx/Desktop/_XXX/work/workspace/temp-postgres/src/main/resources/ssl_file/server.crt&sslkey=/Users/bbx/Desktop/_XXX/work/workspace/temp-postgres/src/main/resources/ssl_file/server.pk8
+#    username: testuser
+#    driver-class-name: org.postgresql.Driver
 
     #### Vault用
-    url: jdbc:postgresql://localhost:5432/test_db
-    username: testuser
-    password: testpassword
+#    url: jdbc:postgresql://localhost:5432/test_db
+#    username: testuser
+#    password: testpassword
+#    driver-class-name: org.postgresql.Driver
 
-    driver-class-name: org.postgresql.Driver
+  # JPA配置
   jpa:
     properties:
       hibernate:
@@ -22,3 +24,13 @@ spring:
 #        hbm2ddl:
 #          auto: update
 
+  # vault配置
+  cloud:
+    vault:
+      uri: http://192.168.3.137:8200
+      token: hvs.WcJbYLvD1cSCN1hMh5UEqUNa
+      #authentication: VpzuaR7p4aebcecHDE+Zft/Bcdk/Z2PSYXGCJ4wOX2A=
+      postgresql:
+        enabled: true
+        role: vault
+        backend: database
