@@ -1,7 +1,6 @@
 package jr.temp.postgres;
 
 import jr.temp.postgres.cmn.dto.CredentialDto;
-import jr.temp.postgres.cmn.dto.Secrets;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
